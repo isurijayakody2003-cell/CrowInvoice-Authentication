@@ -1,0 +1,410 @@
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #29233f;
+  background: #f8f7fc;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* Main login layout */
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  background: #f8f7fc;
+}
+
+
+/* Left branding section */
+.Login.Brand {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 38px 40px;
+  background: #211d1d;
+  color: #ffffff;
+}
+
+/* Blurred background image */
+.Login.Brand::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  z-index: -2;
+  background-image: url("../assets/Logo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  transform: scale(1.08);
+  opacity: 0.65;
+}
+
+/* Dark overlay for better text visibility */
+.Login.Brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(15, 13, 13, 0.68);
+  pointer-events: none;
+}
+
+
+/* Brand logo */
+.Brand.Logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.Brand.Logo h1 {
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.Brand.Logo img {
+  width: 85px;
+  height: 65px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 7px;
+}
+
+
+/* Brand text and description */
+.Brand-Container {
+  width: 100%;
+  max-width: 490px;
+  margin-bottom: 45px;
+  position: relative;
+  z-index: 2;
+}
+
+.Brand-Tag {
+  display: inline-block;
+  color: #d9c9ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.Brand-Container h1 {
+  color: #ffffff;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.12;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+}
+
+.Brand-Container p {
+  color: #e4dfe0;
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 450px;
+}
+
+
+/* Right login panel */
+.Login.Panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 40px;
+  background: linear-gradient(135deg, #fcfbff, #f4f1fa);
+}
+
+
+/* Login card */
+.Login.Card {
+  width: 100%;
+  max-width: 410px;
+  margin: auto;
+}
+
+
+/* Login heading */
+.welcome {
+  display: block;
+  color: #8062d6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.Login.Card > h1 {
+  color: #29233f;
+  font-size: 28px;
+  font-weight: 650;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.Sub {
+  color: #89849a;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+
+/* Login and registration tabs */
+.auth-tabs {
+  display: flex;
+  width: 100%;
+  background: #eeebf6;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+
+.auth-tabs button {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.active-tab {
+  background: #ffffff;
+  color: #7655d9;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(74, 53, 132, 0.12);
+}
+
+.inactive-tab {
+  background: transparent;
+  color: #777087;
+}
+
+.inactive-tab:hover {
+  color: #7655d9;
+}
+
+
+/* Login form fields */
+.Login.Card form {
+  width: 100%;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #39334e;
+  margin-bottom: 9px;
+}
+
+.form input {
+  width: 100%;
+  height: 47px;
+  padding: 0 14px;
+  border: 1px solid #ded9e9;
+  border-radius: 9px;
+  background: #ffffff;
+  font-size: 13px;
+  color: #29233f;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.form input:hover {
+  border-color: #c4b6e7;
+}
+
+.form input:focus {
+  border-color: #9273e8;
+  box-shadow: 0 0 0 3px rgba(146, 115, 232, 0.13);
+}
+
+.form input::placeholder {
+  color: #aaa4b8;
+}
+
+
+/* Remember me checkbox */
+.Remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.Remember input {
+  width: 15px;
+  height: 15px;
+  accent-color: #8062d6;
+  cursor: pointer;
+}
+
+.Remember label {
+  font-size: 11px;
+  color: #777087;
+  cursor: pointer;
+}
+
+
+/* Login button */
+.login.btn {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(100deg, #7655d9, #9877e9);
+  border: none;
+  border-radius: 9px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 14px rgba(118, 85, 217, 0.2);
+}
+
+.login.btn:hover {
+  background: linear-gradient(100deg, #6544c5, #8562db);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(118, 85, 217, 0.3);
+}
+
+.login.btn:active {
+  transform: translateY(0);
+}
+
+
+/* Footer text inside login card */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 11px;
+  color: #89849a;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer:hover {
+  color: #7655d9;
+}
+
+
+/* Main page footer */
+.main-footer {
+  width: 100%;
+  background: #f8f7fc;
+  padding: 40px 5% 24px;
+  border-top: 1px solid #e5e0ef;
+  color: #514969;
+}
+
+
+/* Footer logo and description */
+.footer-top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.footer-brand {
+  min-width: 110px;
+}
+
+.footer-brand img {
+  width: 110px;
+  height: 75px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.footer-description {
+  border-left: 1px solid #ded8eb;
+  padding-left: 30px;
+  max-width: 480px;
+}
+
+.footer-description p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #89849a;
+}
+
+.footer-description strong {
+  color: #493477;
+}
+
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #514969;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #8062d6;
+}
+
+
+/* Footer copyright section */
+.footer-bottom {
+  border-top: 1px solid #e5e0ef;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom p,
+.footer-bottom span {
+  font-size: 10px;
+  color: #9891a9;
+}
+
+

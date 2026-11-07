@@ -1,0 +1,83 @@
+
+/* Main dashboard layout */
+.dashboard-container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+  color: #202c45;
+}
+
+/* Top navigation bar */
+.dashboard-header {
+  background: #ffffff;
+  padding: 20px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-header h2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #202c45;
+  margin: 0;
+}
+
+.dashboard-header button {
+  background: #202c45;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dashboard-header button:hover {
+  background: #344766;
+  transform: translateY(-2px);
+}
+
+/* Dashboard page content */
+.dashboard-content {
+  padding: 55px 6%;
+}
+
+.dashboard-content h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #202c45;
+}
+
+.dashboard-content > p {
+  color: #7b8495;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+/* Welcome information card */
+.dashboard-card {
+  background: #ffffff;
+  padding: 35px;
+  max-width: 650px;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf0f5;
+}
+
+.dashboard-card h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #202c45;
+}
+
+.dashboard-card p {
+  color: #7b8495;
+  line-height: 1.6;
+}
+
+
+
