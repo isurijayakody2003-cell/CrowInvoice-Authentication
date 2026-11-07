@@ -1,9 +1,12 @@
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 .register-container {
+  width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -11,7 +14,7 @@
   background: #f8f7fc;
 }
 
-/* Left side with CrowInvoice branding */
+/* LEFT BRANDING SECTION */
 
 .register-brand {
   background: #40151d;
@@ -63,7 +66,7 @@
   max-width: 450px;
 }
 
-/* Right side with the registration form */
+/* RIGHT REGISTRATION PANEL */
 
 .register-panel {
   display: flex;
@@ -96,7 +99,7 @@
   margin-bottom: 25px;
 }
 
-/* Sign in and Create account tabs */
+/* AUTH TABS */
 
 .register-tabs {
   display: flex;
@@ -123,7 +126,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Registration form fields */
+/* REGISTRATION FORM */
 
 .register-form-group {
   margin-bottom: 16px;
@@ -154,7 +157,7 @@
   box-shadow: 0 0 0 3px rgba(128,86,232,0.1);
 }
 
-/* Create account button */
+/* REGISTER BUTTON */
 
 .register-submit {
   width: 100%;
@@ -180,7 +183,7 @@
   cursor: not-allowed;
 }
 
-/* Show validation and status messages */
+/* VALIDATION MESSAGES */
 
 .register-error {
   background: #fff0f0;
@@ -200,7 +203,7 @@
   margin: 12px 0;
 }
 
-/* Registration page footer */
+/* FOOTER */
 
 .register-footer {
   text-align: center;
@@ -209,3 +212,170 @@
   margin-top: 25px;
 }
 
+/* TABLET RESPONSIVE */
+
+@media screen and (max-width: 900px) and (min-width: 769px) {
+
+  .register-container {
+    grid-template-columns: 38% 62%;
+  }
+
+  .register-brand {
+    padding: 30px 25px;
+  }
+
+  .register-brand-content h1 {
+    font-size: 35px;
+  }
+
+  .register-panel {
+    padding: 30px 20px;
+  }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+
+  .register-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Keep branding visible on mobile */
+
+  .register-brand {
+    display: flex;
+    width: 100%;
+    min-height: 230px;
+    padding: 22px 25px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .register-logo {
+    gap: 12px;
+  }
+
+  .register-logo h1 {
+    font-size: 23px;
+  }
+
+  .register-logo img {
+    width: 60px;
+    height: 48px;
+  }
+
+  .register-brand-content {
+    margin: 0;
+  }
+
+  .register-brand-content span {
+    font-size: 10px;
+  }
+
+  .register-brand-content h1 {
+    font-size: 25px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  .register-brand-content p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* Registration panel */
+
+  .register-panel {
+    width: 100%;
+    min-height: auto;
+    padding: 35px 22px 45px;
+  }
+
+  .register-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .register-welcome {
+    font-size: 11px;
+  }
+
+  .register-card h1 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .register-subtitle {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 23px;
+  }
+
+  .register-tabs {
+    margin-bottom: 23px;
+  }
+
+  .register-tabs button {
+    padding: 13px 8px;
+    font-size: 13px;
+  }
+
+  .register-form-group {
+    margin-bottom: 17px;
+  }
+
+  .register-form-group label {
+    font-size: 13px;
+  }
+
+  .register-form-group input {
+    height: 49px;
+    font-size: 14px;
+  }
+
+  .register-submit {
+    min-height: 49px;
+    font-size: 14px;
+  }
+
+  .register-error,
+  .register-success {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .register-footer {
+    font-size: 12px;
+    margin-top: 22px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media screen and (max-width: 380px) {
+
+  .register-brand {
+    min-height: 215px;
+    padding: 20px;
+  }
+
+  .register-brand-content h1 {
+    font-size: 22px;
+  }
+
+  .register-panel {
+    padding: 28px 17px 35px;
+  }
+
+  .register-card h1 {
+    font-size: 24px;
+  }
+
+  .register-tabs button {
+    font-size: 12px;
+  }
+}

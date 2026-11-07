@@ -1,5 +1,5 @@
 
-/* Global styles */
+/* GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +21,7 @@ input {
   font-family: inherit;
 }
 
-
-/* Main login layout */
+/* MAIN LOGIN LAYOUT */
 .login-container {
   width: 100%;
   min-height: 100vh;
@@ -31,8 +30,7 @@ input {
   background: #f8f7fc;
 }
 
-
-/* Left branding section */
+/* LEFT BRANDING SECTION */
 .Login.Brand {
   position: relative;
   isolation: isolate;
@@ -41,11 +39,10 @@ input {
   flex-direction: column;
   justify-content: space-between;
   padding: 38px 40px;
-  background: #211d1d;
+  background: #40151d;
   color: #ffffff;
 }
 
-/* Blurred background image */
 .Login.Brand::before {
   content: "";
   position: absolute;
@@ -60,7 +57,6 @@ input {
   opacity: 0.65;
 }
 
-/* Dark overlay for better text visibility */
 .Login.Brand::after {
   content: "";
   position: absolute;
@@ -70,8 +66,7 @@ input {
   pointer-events: none;
 }
 
-
-/* Brand logo */
+/* BRAND LOGO */
 .Brand.Logo {
   display: flex;
   align-items: center;
@@ -96,8 +91,7 @@ input {
   border-radius: 7px;
 }
 
-
-/* Brand text and description */
+/* BRAND CONTENT */
 .Brand-Container {
   width: 100%;
   max-width: 490px;
@@ -131,8 +125,7 @@ input {
   max-width: 450px;
 }
 
-
-/* Right login panel */
+/* RIGHT LOGIN PANEL */
 .Login.Panel {
   display: flex;
   justify-content: center;
@@ -141,16 +134,14 @@ input {
   background: linear-gradient(135deg, #fcfbff, #f4f1fa);
 }
 
-
-/* Login card */
+/* LOGIN CARD */
 .Login.Card {
   width: 100%;
   max-width: 410px;
   margin: auto;
 }
 
-
-/* Login heading */
+/* LOGIN HEADING */
 .welcome {
   display: block;
   color: #8062d6;
@@ -175,8 +166,7 @@ input {
   margin-bottom: 30px;
 }
 
-
-/* Login and registration tabs */
+/* AUTH TABS */
 .auth-tabs {
   display: flex;
   width: 100%;
@@ -213,8 +203,7 @@ input {
   color: #7655d9;
 }
 
-
-/* Login form fields */
+/* LOGIN FORM */
 .Login.Card form {
   width: 100%;
 }
@@ -257,8 +246,7 @@ input {
   color: #aaa4b8;
 }
 
-
-/* Remember me checkbox */
+/* REMEMBER ME */
 .Remember {
   display: flex;
   align-items: center;
@@ -279,8 +267,7 @@ input {
   cursor: pointer;
 }
 
-
-/* Login button */
+/* LOGIN BUTTON */
 .login.btn {
   display: block;
   width: 100%;
@@ -306,8 +293,7 @@ input {
   transform: translateY(0);
 }
 
-
-/* Footer text inside login card */
+/* LOGIN FOOTER */
 .footer {
   text-align: center;
   margin-top: 30px;
@@ -321,8 +307,7 @@ input {
   color: #7655d9;
 }
 
-
-/* Main page footer */
+/* MAIN PAGE FOOTER */
 .main-footer {
   width: 100%;
   background: #f8f7fc;
@@ -331,8 +316,6 @@ input {
   color: #514969;
 }
 
-
-/* Footer logo and description */
 .footer-top {
   display: flex;
   align-items: center;
@@ -368,8 +351,7 @@ input {
   color: #493477;
 }
 
-
-/* Footer links */
+/* FOOTER LINKS */
 .footer-links {
   display: flex;
   align-items: center;
@@ -390,8 +372,7 @@ input {
   color: #8062d6;
 }
 
-
-/* Footer copyright section */
+/* FOOTER COPYRIGHT */
 .footer-bottom {
   border-top: 1px solid #e5e0ef;
   padding-top: 18px;
@@ -407,4 +388,177 @@ input {
   color: #9891a9;
 }
 
+/* TABLET */
+@media screen and (max-width: 900px) and (min-width: 769px) {
+  .login-container {
+    grid-template-columns: 38% 62%;
+  }
 
+  .Login.Brand {
+    padding: 30px 25px;
+  }
+
+  .Login.Panel {
+    padding: 35px 25px;
+  }
+
+  .Brand-Container h1 {
+    font-size: 36px;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Branding visible above the login form */
+  .Login.Brand {
+    display: flex;
+    width: 100%;
+    min-height: 230px;
+    padding: 22px 25px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .Brand.Logo h1 {
+    font-size: 23px;
+  }
+
+  .Brand.Logo img {
+    width: 60px;
+    height: 48px;
+  }
+
+  .Brand-Container {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .Brand-Tag {
+    font-size: 9px;
+  }
+
+  .Brand-Container h1 {
+    font-size: 25px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  .Brand-Container p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* Login form below branding */
+  .Login.Panel {
+    width: 100%;
+    min-height: auto;
+    padding: 35px 22px 45px;
+  }
+
+  .Login.Card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .Login.Card > h1 {
+    font-size: 26px;
+  }
+
+  .Sub {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .auth-tabs {
+    margin-bottom: 24px;
+  }
+
+  .auth-tabs button {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .form {
+    margin-bottom: 18px;
+  }
+
+  .form label {
+    font-size: 13px;
+  }
+
+  .form input {
+    height: 49px;
+    font-size: 14px;
+  }
+
+  .Remember label {
+    font-size: 12px;
+  }
+
+  .login.btn {
+    height: 49px;
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+
+  /* Footer responsive */
+  .main-footer {
+    padding: 28px 22px 20px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .footer-description {
+    border-left: none;
+    border-top: 1px solid #ded8eb;
+    padding: 15px 0 0;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* SMALL MOBILE */
+@media screen and (max-width: 380px) {
+
+  .Login.Brand {
+    min-height: 215px;
+    padding: 20px;
+  }
+
+  .Brand-Container h1 {
+    font-size: 22px;
+  }
+
+  .Login.Panel {
+    padding: 28px 17px 35px;
+  }
+
+  .Login.Card > h1 {
+    font-size: 24px;
+  }
+
+  .auth-tabs button {
+    font-size: 12px;
+  }
+}
