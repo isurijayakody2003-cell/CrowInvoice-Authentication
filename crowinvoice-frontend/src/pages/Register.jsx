@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 import crowLogo from "../assets/Logo.jpg";
-import { registerUser } from "../services/Service";
+import { registerUser } from "../services/Service.js";
 
 function Register() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Register() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Handle form submission
+  // Handle registration
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -31,7 +31,7 @@ function Register() {
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
 
-    // Input validation
+    // Name validation
     if (!trimmedName) {
       setError("Please enter your full name.");
       return;
@@ -42,6 +42,7 @@ function Register() {
       return;
     }
 
+    // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!trimmedEmail) {
@@ -59,6 +60,7 @@ function Register() {
       return;
     }
 
+    // Password validation
     if (password.length < 8) {
       setError("Password must contain at least 8 characters.");
       return;
@@ -72,35 +74,27 @@ function Register() {
     setLoading(true);
 
     try {
-      // API request
       const result = await registerUser({
         name: trimmedName,
         email: trimmedEmail,
-        password: password,
+        password,
         password_confirmation: confirmPassword,
       });
 
-      // Handle API response
-      if (result.success) {
+      if (result?.success) {
         setSuccess(
-          result.message || "Account created successfully!"
+          result.message || "Registration request completed."
         );
 
-        navigate(result.data?.redirectTo || "/dashboard");
+        // Do not assume registration means authenticated login.
+        // User can proceed to the login page.
       } else {
-        const firstError = Object.values(
-          result.errors || {}
-        ).flat()[0];
-
         setError(
-          firstError ||
-          result.message ||
-          "Registration failed."
+          result?.message || "Registration failed."
         );
       }
 
     } catch (err) {
-      // Error handling
       console.error("Registration error:", err);
 
       if (err.status === 409) {
@@ -113,11 +107,13 @@ function Register() {
         ).flat()[0];
 
         setError(
-          firstError || err.message ||
+          firstError ||
+          err.message ||
           "Please check your submitted details."
         );
       } else {
         setError(
+          err.message ||
           "Unable to connect to the server. Please try again."
         );
       }
@@ -154,6 +150,7 @@ function Register() {
             way to manage your business invoices.
           </p>
         </div>
+
       </section>
 
       {/* Registration section */}
@@ -205,6 +202,7 @@ function Register() {
                 onChange={(e) => {
                   setName(e.target.value);
                   setError("");
+                  setSuccess("");
                 }}
                 autoComplete="name"
                 disabled={loading}
@@ -223,6 +221,7 @@ function Register() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                   setError("");
+                  setSuccess("");
                 }}
                 autoComplete="email"
                 disabled={loading}
@@ -240,6 +239,7 @@ function Register() {
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setError("");
+                  setSuccess("");
                 }}
                 autoComplete="new-password"
                 disabled={loading}
@@ -259,35 +259,46 @@ function Register() {
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
                   setError("");
+                  setSuccess("");
                 }}
                 autoComplete="new-password"
                 disabled={loading}
               />
             </div>
 
-            {/* Display messages */}
+            {/* Error message */}
             {error && (
               <div className="register-error" role="alert">
                 {error}
               </div>
             )}
 
+            {/* Success message */}
             {success && (
               <div className="register-success" role="status">
                 {success}
+                <br />
+                <button
+                  type="button"
+                  onClick={() => navigate("/login")}
+                >
+                  Go to Sign in
+                </button>
               </div>
             )}
 
             {/* Submit button */}
-            <button
-              type="submit"
-              className="register-submit"
-              disabled={loading}
-            >
-              {loading
-                ? "Creating account..."
-                : "Create account →"}
-            </button>
+            {!success && (
+              <button
+                type="submit"
+                className="register-submit"
+                disabled={loading}
+              >
+                {loading
+                  ? "Creating account..."
+                  : "Create account →"}
+              </button>
+            )}
 
           </form>
 
@@ -296,6 +307,7 @@ function Register() {
           </p>
 
         </div>
+
       </section>
 
     </div>

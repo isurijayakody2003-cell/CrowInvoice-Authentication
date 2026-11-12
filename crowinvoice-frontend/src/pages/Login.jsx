@@ -21,15 +21,18 @@ function Login() {
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email.trim()) {
-      return setError("Please enter your email address.");
+      setError("Please enter your email address.");
+      return;
     }
 
     if (!validEmail.test(email.trim())) {
-      return setError("Please enter a valid email address.");
+      setError("Please enter a valid email address.");
+      return;
     }
 
-    if (!password.trim()) {
-      return setError("Please enter your password.");
+    if (!password) {
+      setError("Please enter your password.");
+      return;
     }
 
     setLoading(true);
@@ -50,6 +53,8 @@ function Login() {
       }
 
     } catch (err) {
+      console.error("Login Submit Error:", err);
+
       if (err.status === 401) {
         setError("Incorrect email or password.");
       } else if (err.status === 422) {
@@ -57,7 +62,9 @@ function Login() {
       } else if (err.status >= 500) {
         setError("Server error. Please try again later.");
       } else {
-        setError("Unable to connect to the server.");
+        setError(
+          err.message || "Unable to connect to the server."
+        );
       }
 
     } finally {
@@ -68,6 +75,8 @@ function Login() {
   return (
     <>
       <div className="login-container">
+
+        {/* BRAND SECTION */}
 
         <section className="Login Brand">
           <div className="Brand Logo">
@@ -95,6 +104,8 @@ function Login() {
             </p>
           </div>
         </section>
+
+        {/* LOGIN SECTION */}
 
         <section className="Login Panel">
           <div className="Login Card">
@@ -196,8 +207,11 @@ function Login() {
         </section>
       </div>
 
+      {/* FOOTER */}
+
       <footer className="main-footer">
         <div className="footer-top">
+
           <div className="footer-brand">
             <img src={crowLogo} alt="Crow.lk Logo" />
           </div>
@@ -208,10 +222,15 @@ function Login() {
               by <strong>Crow.lk</strong>.
             </p>
           </div>
+
         </div>
 
         <div className="footer-links">
-          <a href="https://crow.lk" target="_blank" rel="noreferrer">
+          <a
+            href="https://crow.lk"
+            target="_blank"
+            rel="noreferrer"
+          >
             Crow.lk ↗
           </a>
         </div>
