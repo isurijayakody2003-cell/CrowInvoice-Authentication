@@ -6,7 +6,7 @@ export const config = {
 };
 
 export default async function handler(req, res) {
- const targetPath = req.url.replace(/^\/api/, "") || "/";
+const targetPath = req.url.replace(/^\/api/, "") || "/";
   const targetUrl = `https://tools.crowdemo.com${targetPath}`;
 
   try {
