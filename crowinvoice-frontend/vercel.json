@@ -2,12 +2,12 @@
 {
   "rewrites": [
     {
-      "source": "/backend",
-      "destination": "https://tools.crowdemo.com/"
+      "source": "/backend/:path*",
+      "destination": "/api/proxy/:path*"
     },
     {
-      "source": "/backend/:path*",
-      "destination": "https://tools.crowdemo.com/:path*"
+      "source": "/backend",
+      "destination": "/api/proxy"
     }
   ]
 }
